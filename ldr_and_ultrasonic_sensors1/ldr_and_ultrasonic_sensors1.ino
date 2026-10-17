@@ -34,8 +34,8 @@ int calcDist() {
 }
 
 void loop() {
-  int ldrValue = analogRead(resistancePin);  //  Missing semicolon fixed
-  distance = calcDist();                     // Ensure distance is updated
+  int ldrValue = analogRead(resistancePin); 
+  distance = calcDist();                     
 
   Serial.print("Light level: ");
   Serial.println(ldrValue);
@@ -44,7 +44,6 @@ void loop() {
   Serial.print(distance);
   Serial.println(" cm");
 
-  // ✅ Corrected if-statement (removed stray semicolon)
   if (ldrValue < darkThreshold && distance <= distanceThreshold && distance > 0) {
     digitalWrite(ledPin, HIGH);
   } else {
